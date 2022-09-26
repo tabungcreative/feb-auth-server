@@ -31,7 +31,7 @@
                                     <td>
                                         {{-- {{ $item->roles()->get() }} --}}
                                         @foreach($item->roles as $role)
-                                            <label class="">{{ $role->role }},</label>
+                                            <label class="fw-bold">{{ $role->role }}, </label><br>
                                         @endforeach
                                     </td>
                                     <td>{{ $item->created_at }}</td>
