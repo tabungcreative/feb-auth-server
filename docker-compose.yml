@@ -1,0 +1,30 @@
+version: "3"
+services:
+    feb-auth-server:
+        image: ahmdrifai/feb-auth-server:prod
+        container_name: app
+        restart: unless-stopped
+        tty: true
+        env_file: .env
+        depends_on:
+            - cache
+        networks:
+            - laravel-prod
+        command: docker-compose exec app php artisan migrate --seed
+
+    feb-auth-webserver:
+        image: ahmdrifai/feb-auth-webserver:prod
+        container_name: web_server
+        restart: unless-stopped
+        tty: true
+        ports:
+            - "8002:80"
+        depends_on:
+            - feb-auth-server
+        networks:
+            - feb-prod
+
+#Docker Networks
+networks:
+    feb-prod:
+        driver: bridge
