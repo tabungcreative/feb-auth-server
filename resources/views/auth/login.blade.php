@@ -7,7 +7,7 @@
             <div class="card mt-5 border-0 shadow">
                 <div class="card-body text-center">
                     <h3 class="fw-bold">Login</h3>
-                    <img src="{{ asset('img/logo-feb.png') }}" alt="logo-feb" class="img-fluid mb-4" width="150px">
+                    <img src="https://is3.cloudhost.id/storage-feb/logo-feb.png" alt="logo-feb" class="img-fluid mb-4" width="150px">
                     <form method="POST" action="{{ route('login') }}" class="d-flex flex-column align-items-stretch">
                         @csrf
 
