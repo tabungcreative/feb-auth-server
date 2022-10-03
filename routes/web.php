@@ -19,18 +19,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    foreach (User::find(4)->tokens as $token) {
-        $token->revoke();
-    }
     return view('welcome');
 });
 
-Auth::routes();
+Auth::routes(['register' => false]);
 Route::get('/logout', [LoginController::class, 'logout']);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::middleware(['auth', 'super-admin'])->group(function () {
+Route::middleware(['auth', 'can:super-admin'])->group(function () {
     Route::resource('role', RoleController::class)->only('index', 'store');
     Route::resource('user', UserController::class)->only('index');
 });
