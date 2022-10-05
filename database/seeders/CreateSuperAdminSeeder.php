@@ -24,7 +24,7 @@ class CreateSuperAdminSeeder extends Seeder
         $user = new User();
         $user->name = 'super admin';
         $user->email = 'superadmin@feb-unsiq.ac.id';
-        $user->password = Hash::make('jalandieng');
+        $user->password = Hash::make('rahasia');
         $user->save();
 
         $role->users()->attach($user);
