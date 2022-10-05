@@ -10,13 +10,24 @@ class CustomClaim
     public function handle(AccessToken $token, $next)
     {
         //  $token->addClaim('my-claim', 'my custom claim data');
-        $user = User::select('name', 'email')->find($token->getUserIdentifier());
+        $user = User::find($token->getUserIdentifier());
 
-        $roles = [];
+
+
+        $role = [];
         foreach ($user->roles as $value) {
-            $roles[] = $value->role;
+            $role[] = $value->role;
         }
-        $token->addClaim('user', $user);
-        $token->addClaim('roles', $roles);
+
+        $userToken = [
+            "name" => $user->name,
+            'email' => $user->email,
+            "roles" => $role
+        ];
+
+
+        $token->addClaim('user', $userToken);
+
+        return $next($token);
     }
 }

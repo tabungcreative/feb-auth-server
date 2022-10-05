@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "165b4b25e335d6303abaa581549cde76",
+    "content-hash": "b3b81dcd02774c80fe44fe1f4a64832d",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -124,16 +124,16 @@
         },
         {
             "name": "corbosman/laravel-passport-claims",
-            "version": "3.0.0",
+            "version": "3.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/corbosman/laravel-passport-claims.git",
-                "reference": "35b22b7fd644017081c93267c93713bd6c10c701"
+                "reference": "2a30cf58e606a8fa8470d7428f6dc2721f1e1bda"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/corbosman/laravel-passport-claims/zipball/35b22b7fd644017081c93267c93713bd6c10c701",
-                "reference": "35b22b7fd644017081c93267c93713bd6c10c701",
+                "url": "https://api.github.com/repos/corbosman/laravel-passport-claims/zipball/2a30cf58e606a8fa8470d7428f6dc2721f1e1bda",
+                "reference": "2a30cf58e606a8fa8470d7428f6dc2721f1e1bda",
                 "shasum": ""
             },
             "require": {
@@ -143,7 +143,8 @@
             "require-dev": {
                 "mockery/mockery": "^1.1",
                 "orchestra/testbench": "^6.5",
-                "phpseclib/phpseclib": "^2.0",
+                "phpseclib/phpseclib": "^3.0",
+                "phpseclib/phpseclib2_compat": "^1.0",
                 "phpunit/phpunit": "^8.0"
             },
             "type": "library",
@@ -180,9 +181,9 @@
             ],
             "support": {
                 "issues": "https://github.com/corbosman/laravel-passport-claims/issues",
-                "source": "https://github.com/corbosman/laravel-passport-claims/tree/3.0.0"
+                "source": "https://github.com/corbosman/laravel-passport-claims/tree/3.0.3"
             },
-            "time": "2021-03-18T15:40:53+00:00"
+            "time": "2022-04-20T22:12:42+00:00"
         },
         {
             "name": "defuse/php-encryption",
