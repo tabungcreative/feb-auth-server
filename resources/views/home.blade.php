@@ -1,47 +1,50 @@
 @extends('layouts.app')
 
+@section('style')
+    <style>
+        .card-custom:hover {
+            transform: translateX()
+        }
+    </style>
+@endsection
+
 @section('content')
-<div class="container">
+
+    <div class="row d-flex justify-content-center align-items-center flex-column">
+        <img src="https://is3.cloudhost.id/storage-feb/logo-feb.png?AWSAccessKeyId=F81RYXGH1N5R4MWUVBP9&Expires=1664934960&Signature=tkXQtLWxTRINqAdcLDng79yhUiQ%3D" class="img-fluid rounded" width="200px" alt="image-profile">
+        <h5 class="font-weight-bold text-gray-900 mt-3">Welcome, {{ Auth::user()->name }}</h5>
+        <p>Manage your info, privacy, and security to make Faculty work better for you.</p>
+    </div>
+    <!-- Page Heading -->
+    <h4 class="mb-4 text-gray-900">
+        <i class="fas fa-fw fa-desktop"></i>
+        Daftar Aplikasi Tersedia
+    </h4>
+
     <div class="row">
-        <div class="col">
-            <h3>
-                <i class="fas fa-boxes fa-lg"></i>
-                Menu</h3>
-        </div>
-    </div>
-    <div class="row justify-content-center">
-        <div class="col-md-12 d-flex flex-wrap justify-content-start">
-            <div class="card m-2 border-0 shadow-sm item-menu" style="width: 12rem">
-                <a href="{{ route('user.index') }}" class="nav-link">
-                    <div class="card-body d-flex flex-column align-items-center">
-                        <div class="icon-menu">
-                            <i class="fas fa-users fa-5x"></i>
-                        </div>
-                        <h3 class="fw-bold pt-3">Users</h3>
+       
+        <div class="col-xl-3 col-md-6 mb-4">
+                <a href="" class="nav-link card-custom">
+                <div class="card border-left-primary shadow h-100 py-2" style="width: 18rem;">
+                    <div class="card-body">
+                        <img src="https://is3.cloudhost.id/storage-feb/assets/logo/logo-difisy.png?AWSAccessKeyId=F81RYXGH1N5R4MWUVBP9&Expires=1664933857&Signature=MuEiv9AjsXDFiK0YNFvmEoQEzxw%3D" class="card-img-top py-2" alt="logo-ebfis">
+                        <p class="card-text text-gray-800 mt-4">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                     </div>
-                </a>
-            </div>
-            @canany(['super-admin', 'dev'])
-            <div class="card m-2 border-0 shadow-sm item-menu" style="width: 12rem">
-                <a href="" class="nav-link">
-                    <div class="card-body d-flex flex-column align-items-center">
-                        <div class="icon-menu">
-                            <i class="fa-solid fa-key fa-5x"></i>
-                        </div>
-                        <h3 class="fw-bold pt-3">Oauth Client</h3>
-                    </div>
-                </a>
-            </div>
-            <div class="card m-2 border-0 shadow-sm item-menu" style="width: 13rem">
-                    <a href="{{ route('role.index') }}" class="nav-link">
-                        <div class="card-body d-flex flex-column align-items-center">
-                            <i class="fas fa-shield-alt fa-5x"></i>
-                            <h3 class="fw-bold pt-3">Roles</h3>
-                        </div>
-                    </a>
                 </div>
-            @endcanany
+            </a>
         </div>
+        
+        <div class="col-xl-3 col-md-6 mb-4">
+                <a href="" class="nav-link card-custom">
+                <div class="card border-left-primary shadow h-100 py-2" style="width: 18rem;">
+                    <div class="card-body">
+                        <img src="https://is3.cloudhost.id/storage-feb/assets/logo/logo-digilib.png?AWSAccessKeyId=F81RYXGH1N5R4MWUVBP9&Expires=1664934012&Signature=lWMShpN%2Bzm2RUVqUBweGfG6J%2Fv4%3D" class="card-img-top" alt="logo-ebfis">
+                        <p class="card-text text-gray-800 mt-4">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        
     </div>
-</div>
+
 @endsection

@@ -5,32 +5,31 @@ namespace App\Repositories\Impl;
 use App\Models\User;
 use App\Repositories\UserRepository;
 
-class UserRepositoryImpl implements UserRepository {
+class UserRepositoryImpl implements UserRepository
+{
 
-    function getAllUser(?string $key)
+    function getAll()
     {
-        if ($key == null) {
-            return User::orderBy('created_at', 'DESC')
-            ->paginate(10);
-        }
         return User::orderBy('created_at', 'DESC')
-            ->where('name', 'like', '%'.$key.'%')
-            ->paginate(10);
+            ->get();
     }
-    
-    function createUser(array $userDetail)
+
+    function create(array $userDetail, array $roles)
     {
-        return User::create($userDetail);
+        $user = new User($userDetail);
+        $user->save();
+        $user->roles()->attach($roles);
+        $user->save();
+        return $user;
     }
-    
-    function updateUser(int $userId, array $userDetail)
-    {
-        throw new \Exception("Method not implemented");
-    }
-    
-    function deleteUser(int $userId): void
+
+    function update(int $userId, array $userDetail)
     {
         throw new \Exception("Method not implemented");
     }
-        
+
+    function delete(int $userId): void
+    {
+        throw new \Exception("Method not implemented");
+    }
 }
