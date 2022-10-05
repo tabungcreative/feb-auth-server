@@ -2,9 +2,10 @@
 
 namespace App\Repositories;
 
-interface UserRepository {
-    function getAllUser(?string $key); 
-    function createUser(array $userDetail);
-    function updateUser(int $userId, array $userDetail);
-    function deleteUser(int $userId): void;
+interface UserRepository
+{
+    function getAll();
+    function create(array $userDetail, array $roles);
+    function update(int $userId, array $userDetail);
+    function delete(int $userId): void;
 }

@@ -176,8 +176,8 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         // custom
-        App\Providers\RoleRepositoryProvider::class,
-        App\Providers\UserRepositoryProvider::class,
+        App\Providers\RoleProvider::class,
+        App\Providers\UserProvider::class,
 
 
 

@@ -2,8 +2,9 @@
 
 namespace App\Services;
 
-use App\Http\Requests\UserRoleAddRequest;
+use App\Http\Requests\UserAddRequest;
 
-interface UserService {
-    function addUserRole(UserRoleAddRequest $request);
+interface UserService
+{
+    function add(UserAddRequest $request);
 }
