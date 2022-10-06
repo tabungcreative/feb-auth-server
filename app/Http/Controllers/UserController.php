@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Exceptions\UserPasswordNotSame;
 use App\Http\Requests\UserAddRequest;
+use App\Http\Requests\UserChangePasswordRequest;
+use App\Http\Requests\UserCreatePassword;
 use App\Repositories\RoleRepository;
 use App\Repositories\UserRepository;
 use App\Services\UserService;
@@ -49,7 +52,47 @@ class UserController extends Controller
                 'user' => $user
             ]);
         } catch (Exception $e) {
-            echo 'Terjadi masalah pada server kami' . $e->getMessage();
+            abort(500);
+        }
+    }
+
+    public function generatePassword($id)
+    {
+        try {
+            $user = $this->userService->generatePassword($id);
+            return redirect()->route('user.index')->with([
+                'success' => 'Password Berhasil dibuat',
+                'password-show' => true,
+                'user' => $user
+            ]);
+        } catch (Exception $e) {
+            abort(500);
+        }
+    }
+
+    public function createPassword(UserCreatePassword $request, $id)
+    {
+        try {
+            $this->userService->createPassword($request, $id);
+            return redirect()->route('user.index')->with([
+                'success' => 'Password Berhasil dibuat',
+            ]);
+        } catch (Exception $e) {
+            abort(500);
+        }
+    }
+
+    public function changePassword(UserChangePasswordRequest $request, $id)
+    {
+        try {
+            $this->userService->changePassword($id, $request);
+            return redirect()->route('user.index')->with([
+                'success' => 'Password Berhasil dibuat',
+            ]);
+        } catch (UserPasswordNotSame $e) {
+            return redirect()->back()->with('error', $e->getMessage());
+        } catch (Exception $e) {
+            abort(500);
         }
     }
 }

@@ -32,4 +32,13 @@ class UserRepositoryImpl implements UserRepository
     {
         throw new \Exception("Method not implemented");
     }
+
+    function updatePassword(int $id, string $password)
+    {
+        $user = User::find($id);
+        $user->password = $password;
+        $user->save();
+
+        return $user;
+    }
 }

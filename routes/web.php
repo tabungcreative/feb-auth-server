@@ -40,6 +40,9 @@ Route::controller(UserController::class)
         Route::get('/', 'index')->name('index');
         Route::get('/create', 'create')->name('create');
         Route::post('/', 'store')->name('store');
+        Route::post('/{id}/generate-password', 'generatePassword')->name('generate-password');
+        Route::post('/{id}/change-password', 'changePassword')->name('change-password');
+        Route::post('/{id}/create-password', 'createPassword')->name('create-password');
     });
 
 Route::controller(RoleController::class)

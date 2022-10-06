@@ -8,6 +8,14 @@
         Tambah User
         </a>
 
+        @if($refund = Session::has('password-show'))
+            <div class="alert alert-warning">
+                Berhasil generate password user ({{ Session::get('user')->name }}), <br>
+                <b>Password  : {{ Session::get('user')->password }} </b>,<br>
+                Password hanya akan ditampilan 1 kali !!. copy password agar tidak lupa ya
+            </div>
+        @endif
+
         <div class="card border-0 shadow">
             <div class="card-body">
                 <table class="table">
@@ -35,8 +43,14 @@
                                 </td>
                                 <td>{{ $item->created_at }}</td>
                                 <td>
-                                    <a href="" class="btn btn-info btn-sm">Create Password</a>
-                                    <a href="" class="btn btn-success btn-sm">Generate Password</a>
+                                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#createModal{{ $item->id }}">
+                                        Create Password
+                                    </button>
+                                    @include('users.create-password-modal')
+                                    <form method="POST" action="{{ route('user.generate-password', $item->id) }}">
+                                        @csrf
+                                        <button type="submit" class="btn btn-success btn-sm mt-2">Generate Password</button>
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach
