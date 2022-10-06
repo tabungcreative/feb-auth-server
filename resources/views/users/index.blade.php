@@ -51,7 +51,7 @@
                                         Create Password
                                     </button>
                                     @include('users.create-password-modal')
-                                    <form method="POST" action="{{ route('user.generate-password', $item->id) }}">
+                                    <form onSubmit="if(!confirm('Yakin ingin generate password ?')){return false;}" method="POST" action="{{ route('user.generate-password', $item->id) }}">
                                         @csrf
                                         <button type="submit" class="btn btn-success btn-sm mt-2">Generate Password</button>
                                     </form>
