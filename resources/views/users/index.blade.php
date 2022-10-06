@@ -8,6 +8,10 @@
         Tambah User
         </a>
 
+        <a href="{{ route('user.create') }}" class="btn btn-success my-3 shadow-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Tambah User Dosen
+        </a>
+
         @if($refund = Session::has('password-show'))
             <div class="alert alert-warning">
                 Berhasil generate password user ({{ Session::get('user')->name }}), <br>

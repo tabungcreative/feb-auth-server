@@ -35,7 +35,7 @@
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <img src="https://is3.cloudhost.id/storage-feb/logo-feb.png?AWSAccessKeyId=F81RYXGH1N5R4MWUVBP9&Expires=1664934960&Signature=tkXQtLWxTRINqAdcLDng79yhUiQ%3D" class="img-fluid" width="50px" alt="">
+                <img src="https://is3.cloudhost.id/storage-feb/logo-feb.png" class="img-fluid" width="50px" alt="">
                 <div class="sidebar-brand-text mx-3">Accounts</div>
             </a>
 
@@ -85,7 +85,7 @@
                                     {{ Auth::user()->name }}
                                 </span>
                                 <img class="img-profile rounded-circle"
-                                    src="img/undraw_profile.svg">
+                                    src="{{ asset('sb-admin/img/undraw_profile.sv')}}g">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -111,7 +111,7 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-4 text-gray-800">{{ $title ?? 'Accounts' }}</h1>
+                    <h1 class="h3 mb-4 text-gray-800">{{ $title ?? '' }}</h1>
                     @if (count($errors) > 0)
                         <div class="alert alert-danger">
                             <strong>Whoops!</strong>Something went wrong.<br><br>
