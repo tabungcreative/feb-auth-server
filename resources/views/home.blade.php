@@ -22,77 +22,78 @@
     </h4>
 
     <div class="row">
-       
-        <div class="col-xl-3 col-md-6 mb-4">
-                <a href="https://ebfis.feb-unsiq.ac.id/" class="nav-link card-custom">
-                <div class="card border-left-primary shadow h-100 py-2" style="width: 18rem;">
-                    <div class="card-body">
-                        <img src="{{ asset('img/logo-ebfis.png') }}" class="card-img-top py-2" alt="logo-ebfis">
-                        <p class="card-text text-gray-800 mt-4">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    </div>
-                </div>
-            </a>
-        </div>
-        
-        <div class="col-xl-3 col-md-6 mb-4">
-                <a href="https://difisy.feb-unsiq.ac.id/" class="nav-link card-custom">
-                <div class="card border-left-primary shadow h-100 py-2" style="width: 18rem;">
-                    <div class="card-body">
-                        <img src="{{ asset('img/logo-difisy.jpg') }}" class="card-img-top py-2" alt="logo-ebfis">
-                        <p class="card-text text-gray-800 mt-4">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    </div>
-                </div>
-            </a>
-        </div>
-        
-        <div class="col-xl-3 col-md-6 mb-4">
-                <a href="https://digilib.feb-unsiq.ac.id/" class="nav-link card-custom">
-                <div class="card border-left-primary shadow h-100 py-2" style="width: 18rem;">
-                    <div class="card-body">
-                        <img src="{{ asset('img/logo-digilib.jpg') }}" class="card-img-top py-2" alt="logo-ebfis">
-                        <p class="card-text text-gray-800 mt-4">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    </div>
-                </div>
-            </a>
-        </div>
-        
-        <div class="col-xl-3 col-md-6 mb-4">
-                <a href="https://diaregsi.feb-unsiq.ac.id/" class="nav-link card-custom">
-                <div class="card border-left-primary shadow h-100 py-2" style="width: 18rem;">
-                    <div class="card-body">
-                        <img src="{{ asset('img/logo-diaregsi.jpg') }}" class="card-img-top py-2" alt="logo-ebfis">
-                        <p class="card-text text-gray-800 mt-4">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    </div>
-                </div>
-            </a>
-        </div>
-        
-        <div class="col-xl-3 col-md-6 mb-4">
-                <a href="https://pedoma.feb-unsiq.ac.id/" class="nav-link card-custom">
-                <div class="card border-left-primary shadow h-100 py-2" style="width: 18rem;">
-                    <div class="card-body">
-                        <img src="{{ asset('img/logo-pedoma.jpg') }}" class="card-img-top py-2" alt="logo-ebfis">
-                        <p class="card-text text-gray-800 mt-4">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    </div>
-                </div>
-            </a>
-        </div>
 
+        @can('manage-ebfis')
         <div class="col-xl-3 col-md-6 mb-4">
-                <a href="https://spmi.feb-unsiq.ac.id/" class="nav-link card-custom">
+            <a href="https://ebfis.feb-unsiq.ac.id/dashboard" class="nav-link card-custom" target="_blank">
                 <div class="card border-left-primary shadow h-100 py-2" style="width: 18rem;">
                     <div class="card-body">
-                        <img src="{{ asset('img/logo-spmi.jpg') }}" class="card-img-top py-2" alt="logo-ebfis">
-                        <p class="card-text text-gray-800 mt-4">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <img src="https://is3.cloudhost.id/storage-feb/logo-sistem/logo-ebfis.png" class="card-img-top py-2" alt="logo-ebfis">
                     </div>
                 </div>
             </a>
         </div>
-        
-        
-        
-        
-        
+        @endcan
+
+        @can('manage-difisy')
+        <div class="col-xl-3 col-md-6 mb-4">
+            <a href="https://difisy.feb-unsiq.ac.id/dashboard" class="nav-link card-custom" target="_blank">
+                <div class="card border-left-primary shadow h-100 py-2" style="width: 18rem;">
+                    <div class="card-body">
+                        <img src="https://is3.cloudhost.id/storage-feb/logo-sistem/logo-difisy.png" class="card-img-top py-2" alt="logo-difisy">
+                    </div>
+                </div>
+            </a>
+        </div>
+        @endcan
+
+        @can('manage-digilib')
+        <div class="col-xl-3 col-md-6 mb-4">
+            <a href="https://digilib.feb-unsiq.ac.id/dashboard" class="nav-link card-custom" target="_blank">
+                <div class="card border-left-primary shadow h-100 py-2" style="width: 18rem;">
+                    <div class="card-body">
+                        <img src="https://is3.cloudhost.id/storage-feb/logo-sistem/logo-digilib.png" class="card-img-top py-2" alt="logo-digilib">
+                    </div>
+                </div>
+            </a>
+        </div>
+        @endcan
+
+        @can('manage-diaregsy')
+        <div class="col-xl-3 col-md-6 mb-4">
+            <a href="https://diaregsy.feb-unsiq.ac.id/admin/dashboard" class="nav-link card-custom" target="_blank">
+                <div class="card border-left-primary shadow h-100 py-2" style="width: 18rem;">
+                    <div class="card-body">
+                        <img src="https://is3.cloudhost.id/storage-feb/logo-sistem/logo-diaregsy.png"class="card-img-top py-2" alt="logo-diaregsi">
+                    </div>
+                </div>
+            </a>
+        </div>
+        @endcan
+
+        @can('manage-pedoma')
+        <div class="col-xl-3 col-md-6 mb-4">
+            <a href="https://pedoma.feb-unsiq.ac.id/" class="nav-link card-custom" target="_blank">
+                <div class="card border-left-primary shadow h-100 py-2" style="width: 18rem;">
+                    <div class="card-body">
+                        <img src="https://is3.cloudhost.id/storage-feb/logo-sistem/logo-pedoma.png" class="card-img-top py-2" alt="logo-pedoma">
+                    </div>
+                </div>
+            </a>
+        </div>
+        @endcan
+
+        @can('manage-spmi')
+        <div class="col-xl-3 col-md-6 mb-4">
+            <a href="https://spmi.feb-unsiq.ac.id/" class="nav-link card-custom" target="_blank">
+                <div class="card border-left-primary shadow h-100 py-2" style="width: 18rem;">
+                    <div class="card-body">
+                        <img src="https://is3.cloudhost.id/storage-feb/logo-sistem/logo-spmifeb.png" class="card-img-top py-2" alt="logo-spmi">
+                    </div>
+                </div>
+            </a>
+        </div>
+        @endcan
     </div>
 
 @endsection

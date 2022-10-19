@@ -34,15 +34,72 @@ class AuthServiceProvider extends ServiceProvider
         Passport::personalAccessTokensExpireIn(now()->addMonth(6));
 
         // auth web
-        Gate::define('super-admin', function ($user) {
+        Gate::define('manage-difisy', function ($user) {
             $roles = $this->getArrRoles($user);
-            return in_array('super-admin', $roles);
+            return
+                in_array('super-admin', $roles) ||
+                in_array('bendahara', $roles) ||
+                in_array('dekan', $roles) ||
+                in_array('kabag-tu', $roles);
         });
 
-        Gate::define('dev', function ($user) {
+        Gate::define('manage-ebfis', function ($user) {
             $roles = $this->getArrRoles($user);
-            return in_array('dev', $roles);
+            return
+                in_array('super-admin', $roles) ||
+                in_array('admin-ebfis', $roles);
         });
+
+        Gate::define('manage-digilib', function ($user) {
+            $roles = $this->getArrRoles($user);
+            return
+                in_array('super-admin', $roles) ||
+                in_array('admin-digilib', $roles);
+        });
+
+        Gate::define('manage-diaregsy', function ($user) {
+            $roles = $this->getArrRoles($user);
+            return
+                in_array('super-admin', $roles) ||
+                in_array('admin-diaregsy', $roles);
+        });
+
+        Gate::define('manage-pedoma', function ($user) {
+            $roles = $this->getArrRoles($user);
+            return
+                in_array('super-admin', $roles) ||
+                in_array('admin-pedoma', $roles);
+        });
+
+        Gate::define('manage-spmi', function ($user) {
+            $roles = $this->getArrRoles($user);
+            return
+                in_array('super-admin', $roles) ||
+                in_array('admin-spmi', $roles);
+        });
+
+        Gate::define('manage-oauth', function ($user) {
+            $roles = $this->getArrRoles($user);
+            return
+                in_array('super-admin', $roles) ||
+                in_array('dev', $roles);
+        });
+
+        Gate::define('manage-user', function ($user) {
+            $roles = $this->getArrRoles($user);
+            return
+                in_array('super-admin', $roles) ||
+                in_array('admin-ebfis', $roles) ||
+                in_array('dev', $roles);
+        });
+
+        Gate::define('manage-role', function ($user) {
+            $roles = $this->getArrRoles($user);
+            return
+                in_array('super-admin', $roles) ||
+                in_array('dev', $roles);
+        });
+
     }
 
     public function getArrRoles($user)
