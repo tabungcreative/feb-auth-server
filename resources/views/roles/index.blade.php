@@ -14,7 +14,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($data as $item)    
+                        @foreach ($data as $item)
                             <tr>
                                 <th scope="row">#</th>
                                 <td>{{ $item->role }}</td>
@@ -26,7 +26,6 @@
             </div>
         </div>
     </div>
-    @canany(['dev','super-admin'])
     <div class="col-md-6">
         <div class="card border-0 shadow">
             <div class="card-body">
@@ -41,6 +40,5 @@
             </div>
         </div>
     </div>
-    @endcanany
 </div>
 @endsection

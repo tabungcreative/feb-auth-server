@@ -22,16 +22,22 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($data as $item)    
+                        @foreach ($data as $item)
                             <tr>
                                 <th scope="row">#</th>
                                 <td>{{ $item->name }}</td>
                                 <td>{{ $item->id }}</td>
                                 <td>{{ $item->secret }}</td>
                                 <td>{{ $item->redirect }}</td>
-                                <td>
-                                    <a href="" class="btn btn-info btn-sm">Hapus</a>
-                                    <a href="" class="btn btn-success btn-sm">Edit</a>
+                                <td class="d-flex">
+                                    <form method="POSt" action="{{ route('client.destroy', $item->id) }}">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-info btn-sm">
+                                            Hapus
+                                        </button>
+                                    </form>
+                                    <a href="{{ route('client.edit', $item->id) }}" class="btn btn-success ml-2 btn-sm">Edit</a>
                                 </td>
                             </tr>
                         @endforeach

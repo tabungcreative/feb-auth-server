@@ -23,6 +23,12 @@ class ClientController extends ControllersClientController
         return view('clients.create');
     }
 
+    public function edit($clientId)
+    {
+        $client = $this->clients->find($clientId);
+        return view('clients.edit', compact('client'));
+    }
+
     public function store(Request $request)
     {
         $this->validation->make($request->all(), [
@@ -66,5 +72,19 @@ class ClientController extends ControllersClientController
             $request->name,
             $request->redirect
         );
+        return redirect()->route('client.index')->with('success', 'Berhasil mengubah client oauth');
+    }
+
+    public function destroy(Request $request, $clientId)
+    {
+        $client = $this->clients->findForUser($clientId, $request->user()->getAuthIdentifier());
+
+        if (! $client) {
+            return new Response('', 404);
+        }
+
+        Client::destroy($clientId);
+
+        return redirect()->route('client.index')->with('success', 'Berhasil menghapus client oauth');
     }
 }
