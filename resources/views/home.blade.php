@@ -73,7 +73,7 @@
 
         @can('manage-pedoma')
         <div class="col-xl-3 col-md-6 mb-4">
-            <a href="https://pedoma.feb-unsiq.ac.id/" class="nav-link card-custom" target="_blank">
+            <a href="https://pedoma.feb-unsiq.ac.id/admin/auth" class="nav-link card-custom" target="_blank">
                 <div class="card border-left-primary shadow h-100 py-2" style="width: 18rem;">
                     <div class="card-body">
                         <img src="https://is3.cloudhost.id/storage-feb/logo-sistem/logo-pedoma.png" class="card-img-top py-2" alt="logo-pedoma">
