@@ -15,7 +15,7 @@
 
 
 <!-- Nav Item - Charts -->
-<li class="nav-item">
+{{-- <li class="nav-item">
     <a class="nav-link" href="charts.html">
         <i class="fas fa-fw fa-id-card"></i>
         <span>Personal Info</span></a>
@@ -26,7 +26,7 @@
     <a class="nav-link" href="charts.html">
         <i class="fas fa-fw fa-lock"></i>
         <span>Keamanan</span></a>
-</li>
+</li> --}}
 
 @can('manage-user')
 <!-- Nav Item - Tables -->
