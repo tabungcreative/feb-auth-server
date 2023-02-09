@@ -6,6 +6,7 @@ use App\Exceptions\UserPasswordNotSame;
 use App\Http\Requests\UserAddRequest;
 use App\Http\Requests\UserChangePasswordRequest;
 use App\Http\Requests\UserCreatePassword;
+use App\Http\Requests\UserUpdateRequest;
 use App\Models\User;
 use App\Repositories\UserRepository;
 use App\Services\UserService;
@@ -95,5 +96,19 @@ class UserServiceImpl implements UserService
         }
 
         return $randomString;
+    }
+
+    function update(UserUpdateRequest $request, $id)
+    {
+        $detailUser = $request->only([
+            'name', 'email'
+        ]);
+
+
+        $roles = $request->input('roles');
+
+        $user = $this->userRepository->update($id, $detailUser, $roles);
+
+        return $user;
     }
 }

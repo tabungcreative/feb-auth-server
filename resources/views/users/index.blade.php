@@ -8,10 +8,6 @@
         Tambah User
         </a>
 
-        <a href="{{ route('user.create') }}" class="btn btn-success my-3 shadow-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        Tambah User Dosen
-        </a>
-
         @if($refund = Session::has('password-show'))
             <div class="alert alert-warning">
                 Berhasil generate password user ({{ Session::get('user')->name }}), <br>
@@ -34,7 +30,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($data as $item)    
+                        @foreach ($data as $item)
                             <tr>
                                 <th scope="row">#</th>
                                 <td>{{ $item->name }}</td>
@@ -47,14 +43,8 @@
                                 </td>
                                 <td>{{ $item->created_at }}</td>
                                 <td>
-                                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#createModal{{ $item->id }}">
-                                        Create Password
-                                    </button>
-                                    @include('users.create-password-modal')
-                                    <form onSubmit="if(!confirm('Yakin ingin generate password ?')){return false;}" method="POST" action="{{ route('user.generate-password', $item->id) }}">
-                                        @csrf
-                                        <button type="submit" class="btn btn-success btn-sm mt-2">Generate Password</button>
-                                    </form>
+                                    <a href="{{ route('user.edit', ['id' => $item->id]) }}" class="btn btn-primary btn-sm">Edit</a>
+                                    <a href="" class="btn btn-danger btn-sm">Hapus</a>
                                 </td>
                             </tr>
                         @endforeach

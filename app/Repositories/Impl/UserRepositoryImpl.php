@@ -23,9 +23,14 @@ class UserRepositoryImpl implements UserRepository
         return $user;
     }
 
-    function update(int $userId, array $userDetail)
+    function update(int $userId, array $userDetail, $roles)
     {
-        throw new \Exception("Method not implemented");
+        $user = User::find($userId);
+        $user->name = $userDetail['name'];
+        $user->email = $userDetail['email'];
+        $user->roles()->sync($roles);
+        $user->save();
+        return $user;
     }
 
     function delete(int $userId): void

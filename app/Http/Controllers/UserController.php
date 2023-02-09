@@ -6,6 +6,8 @@ use App\Exceptions\UserPasswordNotSame;
 use App\Http\Requests\UserAddRequest;
 use App\Http\Requests\UserChangePasswordRequest;
 use App\Http\Requests\UserCreatePassword;
+use App\Http\Requests\UserUpdateRequest;
+use App\Models\User;
 use App\Repositories\RoleRepository;
 use App\Repositories\UserRepository;
 use App\Services\UserService;
@@ -91,6 +93,23 @@ class UserController extends Controller
             ]);
         } catch (UserPasswordNotSame $e) {
             return redirect()->back()->with('error', $e->getMessage());
+        } catch (Exception $e) {
+            abort(500);
+        }
+    }
+
+    public function edit($id) {
+        $user = User::find($id);
+        $role = $this->roleRepository->getAllRoles();
+        return view('users.edit', compact('user', 'role'));
+    }
+
+    public function update($id, UserUpdateRequest $request) {
+        try {
+            $user = $this->userService->update($request, $id);
+            return redirect()->route('user.index')->with([
+                'success' => 'User Berhasil diubah',
+            ]);
         } catch (Exception $e) {
             abort(500);
         }
