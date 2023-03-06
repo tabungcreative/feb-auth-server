@@ -100,6 +100,19 @@ class AuthServiceProvider extends ServiceProvider
                 in_array('dev', $roles);
         });
 
+        Gate::define('add-role', function ($user) {
+            $roles = $this->getArrRoles($user);
+            return
+                in_array('dev', $roles);
+        });
+
+        Gate::define('manage-repository', function ($user) {
+            $roles = $this->getArrRoles($user);
+            return
+                in_array('super-admin', $roles) ||
+                in_array('admin-repository', $roles);
+        });
+
     }
 
     public function getArrRoles($user)

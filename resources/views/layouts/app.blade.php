@@ -35,7 +35,7 @@
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <img src="https://is3.cloudhost.id/storage-feb/logo-feb.png" class="img-fluid" width="50px" alt="">
+                <img src="{{ asset('/img/logo-feb.png') }}" class="img-fluid" width="50px" alt="">
                 <div class="sidebar-brand-text mx-3">Accounts</div>
             </a>
 
@@ -44,7 +44,7 @@
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
 
-        
+
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -180,7 +180,7 @@
 
     <!-- Custom scripts for all pages-->
     <script src="{{asset('sb-admin/js/sb-admin-2.min.js')}}"></script>
-   
+
     <script>
     @if(Session::has('success'))
         swal({
@@ -238,7 +238,7 @@
             }
         })
     });
-    
+
 </script>
 @yield('script')
 </body>

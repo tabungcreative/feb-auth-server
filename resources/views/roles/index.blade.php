@@ -26,6 +26,7 @@
             </div>
         </div>
     </div>
+    @can('add-role')
     <div class="col-md-6">
         <div class="card border-0 shadow">
             <div class="card-body">
@@ -40,5 +41,6 @@
             </div>
         </div>
     </div>
+    @endcan
 </div>
 @endsection
