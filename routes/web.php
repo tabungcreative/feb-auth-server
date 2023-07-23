@@ -45,6 +45,7 @@ Route::controller(UserController::class)
         Route::post('/{id}/generate-password', 'generatePassword')->name('generate-password');
         Route::post('/{id}/change-password', 'changePassword')->name('change-password');
         Route::post('/{id}/create-password', 'createPassword')->name('create-password');
+        Route::delete('/{id}', 'delete')->name('delete');
     });
 
 Route::controller(RoleController::class)

@@ -33,7 +33,7 @@ class UserController extends Controller
 
     public function index()
     {
-        $data = $this->userRepository->getAll();
+        $data = User::paginate(20);
 
         return view('users.index', compact('data'));
     }
@@ -112,6 +112,16 @@ class UserController extends Controller
             ]);
         } catch (Exception $e) {
             abort(500);
+        }
+    }
+
+    public function delete($id) {
+        try {
+            $this->userService->destroy($id);
+            return redirect()->back()->with('success', 'Berhasil menghapus data.');
+        } catch (\Exception $e) {
+            dd($e);
+            abort(500, 'terjadi kesalahan pada server');
         }
     }
 }

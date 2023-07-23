@@ -32,7 +32,7 @@
                     <tbody>
                         @foreach ($data as $item)
                             <tr>
-                                <th scope="row">#</th>
+                                <th scope="row">{{ $loop->iteration + $data->firstItem() - 1}}</th>
                                 <td>{{ $item->name }}</td>
                                 <td>{{ $item->email }}</td>
                                 <td>
@@ -44,12 +44,21 @@
                                 <td>{{ $item->created_at }}</td>
                                 <td>
                                     <a href="{{ route('user.edit', ['id' => $item->id]) }}" class="btn btn-primary btn-sm">Edit</a>
-                                    <a href="" class="btn btn-danger btn-sm">Hapus</a>
+                                    <form method="post" action="{{ route('user.delete', $item->id ) }}" onsubmit="return confirm('Konfirmasi Hapus Data . !!')">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-sm btn-danger">
+                                            Hapus
+                                        </button>
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach
                     </tbody>
                 </table>
+                <div class="mx-3 my-3">
+                    {{ $data->appends($_GET)->links() }}
+                </div>
             </div>
         </div>
     </div>

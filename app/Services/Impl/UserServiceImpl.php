@@ -111,4 +111,9 @@ class UserServiceImpl implements UserService
 
         return $user;
     }
+
+    function destroy($id)
+    {
+        $this->userRepository->delete($id);
+    }
 }

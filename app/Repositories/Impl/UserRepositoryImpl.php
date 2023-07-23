@@ -33,9 +33,11 @@ class UserRepositoryImpl implements UserRepository
         return $user;
     }
 
-    function delete(int $userId): void
+    function delete(int $userId)
     {
-        throw new \Exception("Method not implemented");
+        $user = User::find($userId);
+        $user->roles()->detach();
+        return $user->delete();
     }
 
     function updatePassword(int $id, string $password)
